@@ -26,7 +26,7 @@ fn plus_check_u32(list: &Vec<u32>) -> Option<u32> {
     for &e in list.into_iter() {
         match count.checked_add(e) {
             Some(value) => {
-                count += value;
+                count = value;
             }
             None => return None,
         };
@@ -75,25 +75,42 @@ fn get_area<T: Shape>(shape: T) -> f32 {
     shape.area()
 }
 
-fn main() {
+fn subtrate_o4() {
     // 作业 04
     let red_light = TrafficLight::Red.exchage();
     let green_light = TrafficLight::Yello.exchage();
     let yellow_light = TrafficLight::Green.exchage();
 
+    println!("subtrate_o4");
+
     println!("It's going to last {}s", red_light);
     println!("It's going to last {}s", green_light);
     println!("It's going to last {}s", yellow_light);
+    println!("--------");
+}
 
+fn subtrate_o5() {
     // 作业 05
     let u32_vec = vec![MAX, 10, 20];
     let result = plus_check_u32(&u32_vec);
+    let u32_vec02 = vec![20, 40, 10, 20];
+    let result02 = plus_check_u32(&u32_vec02);
+
+    println!("subtrate_o5");
 
     match result {
         Some(result) => println!("result is {} ", result),
         None => println!("Overflow the max u32!"),
     }
 
+    match result02 {
+        Some(result) => println!("result is {} ", result),
+        None => println!("Overflow the max u32!"),
+    }
+    println!("--------");
+}
+
+fn subtrate_o6() {
     // 作业 06
     let circle = Circle { radius: 8.0 };
 
@@ -111,7 +128,19 @@ fn main() {
     let triangle_area = get_area(triangle);
     let rectangle_area = get_area(rectangle);
 
+    println!("subtrate_o6");
+
     println!("circle area is {}", circle_area);
     println!("triangle area is {}", triangle_area);
     println!("rectangle area is {}", rectangle_area);
+    println!("--------");
+}
+
+fn main() {
+    // 作业 04
+    subtrate_o4();
+    // 作业 05
+    subtrate_o5();
+    // 作业 06
+    subtrate_o6();
 }
